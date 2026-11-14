@@ -28,6 +28,12 @@
         <priority>0.95</priority>
     </url>
     <url>
+        <loc>https://sinset.poornima.edu.in/special-sessions.html</loc>
+        <lastmod>2026-11-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
         <loc>https://sinset.poornima.edu.in/#submission</loc>
         <lastmod>2026-11-02</lastmod>
         <changefreq>weekly</changefreq>

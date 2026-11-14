@@ -1395,12 +1395,137 @@
             color: var(--muted);
         }
 
+        /* ---------- Special Sessions Notice ---------- */
+        .special-session-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(14, 122, 95, 0.03) 0%, rgba(11, 31, 58, 0.04) 100%), #ffffff;
+            border: 1px solid rgba(14, 122, 95, 0.22);
+            border-radius: 20px;
+            padding: 26px 32px;
+            margin: 44px auto 0;
+            max-width: 1104px;
+            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(14, 122, 95, 0.06);
+            overflow: hidden;
+            transition: all 0.35s var(--ease);
+        }
+
+        .special-session-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0e7a5f 0%, #2dd4a7 50%, #3b82f6 100%);
+        }
+
+        .special-session-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(11, 31, 58, 0.08), 0 4px 12px rgba(14, 122, 95, 0.1);
+            border-color: rgba(14, 122, 95, 0.35);
+        }
+
+        .special-session-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .special-session-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(14, 122, 95, 0.14), rgba(45, 212, 167, 0.18));
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(14, 122, 95, 0.25);
+            margin-top: 2px;
+        }
+
+        .special-session-content {
+            flex: 1;
+        }
+
+        .special-session-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .special-session-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(14, 122, 95, 0.1);
+            color: var(--primary-dark);
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(14, 122, 95, 0.22);
+        }
+
+        .special-session-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .special-session-content h4 {
+            font-family: "Sora", sans-serif;
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .special-session-content p {
+            font-size: 0.94rem;
+            color: var(--ink-2);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .special-session-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .special-session-link:hover {
+            color: var(--primary-dark);
+            text-decoration-color: var(--primary-dark);
+        }
+
+        .special-session-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
         /* ---------- Conference Awards ---------- */
         .awards-row {
             display: flex;
             gap: 24px;
             justify-content: center;
-            margin-top: 48px;
+            margin-top: 36px;
             flex-wrap: wrap;
             width: 100%;
         }
@@ -1536,9 +1661,40 @@
         }
 
         @media (max-width: 600px) {
+            .special-session-card {
+                padding: 20px 18px;
+                margin-top: 30px;
+                border-radius: 16px;
+            }
+
+            .special-session-inner {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .special-session-icon {
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+            }
+
+            .special-session-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .special-session-content h4 {
+                font-size: 1.02rem;
+            }
+
+            .special-session-content p {
+                font-size: 0.88rem;
+                line-height: 1.6;
+            }
+
             .awards-row {
                 gap: 14px;
-                margin-top: 32px;
+                margin-top: 26px;
             }
 
             .award {
@@ -3681,6 +3837,49 @@
                     </ul>
                 </article>
             </div>
+
+            <!-- ============ SPECIAL SESSIONS ============ -->
+            <div class="special-session-card reveal" id="special-sessions">
+                <div class="special-session-inner">
+                    <div class="special-session-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                    </div>
+                    <div class="special-session-content">
+                        <div class="special-session-header">
+                            <span class="special-session-badge">Special Sessions</span>
+                            <h4>Call for Special Sessions</h4>
+                        </div>
+                        <p>The conference will include special sessions on highly specialized topic areas, reporting
+                            technical trends and breakthroughs within the scope of the conference. Special Sessions are
+                            organized at the initiative of one or more individuals, who must adhere to specific
+                            procedures published <a href="special-sessions.html" class="special-session-link" id="specialSessionLink"
+                                title="View full Special Session procedures and proposal guidelines">here <svg width="13"
+                                    height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.4"
+                                    style="vertical-align:-1px;display:inline-block" aria-hidden="true">
+                                    <path
+                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                                </svg></a>.</p>
+                        <div class="special-session-actions">
+                            <a href="special-sessions.html" class="btn btn-primary btn-sm">
+                                View Proposal Guidelines
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                            <a href="SINSET_2027_Special_Session_Proposal_Template.docx" download="SINSET_2027_Special_Session_Proposal_Template.docx" class="btn btn-primary-outline btn-sm">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                                </svg>
+                                Download Proposal Template (.docx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="awards-row reveal">
                 <div class="award award-paper">
                     <div class="award-icon-box">
@@ -4561,7 +4760,7 @@
                 </div>
                 <div class="accom-deadline-text">
                     <strong>Important Accommodation Deadline:</strong> <span>Accommodation requests will be accepted
-                        only up to midnight of <strong>15/02/2027</strong>.</span>
+                        only up to midnight of <strong>10/02/2027</strong>.</span>
                 </div>
             </div>
         </div>
