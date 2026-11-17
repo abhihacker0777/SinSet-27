@@ -119,6 +119,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
         }
 
         body {
@@ -128,6 +130,8 @@
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            max-width: 100%;
+            position: relative;
         }
 
         h1,
@@ -2990,14 +2994,18 @@
                 padding: 68px 24px 20px;
                 gap: 2px;
                 box-shadow: none;
-                transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
                 z-index: 1000;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
+                visibility: hidden;
+                pointer-events: none;
             }
 
             .nav-links.open {
                 right: 0;
+                visibility: visible;
+                pointer-events: auto;
             }
 
             .nav-links a {

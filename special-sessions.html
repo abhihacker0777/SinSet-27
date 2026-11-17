@@ -66,6 +66,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            max-width: 100%;
         }
 
         body {
@@ -75,6 +77,8 @@
             line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            max-width: 100%;
+            position: relative;
         }
 
         h1,
@@ -804,13 +808,18 @@
                 align-items: stretch;
                 padding: 68px 24px 20px;
                 gap: 4px;
-                transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
                 z-index: 1000;
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                visibility: hidden;
+                pointer-events: none;
             }
 
             .nav-links.open {
                 right: 0;
+                visibility: visible;
+                pointer-events: auto;
             }
 
             .nav-links a {
@@ -1421,6 +1430,11 @@
     <script>
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
+        function closeMenu() {
+            hamburger.classList.remove("open");
+            navLinks.classList.remove("open");
+            document.body.style.overflow = "";
+        }
         function toggleMenu() {
             const isOpen = navLinks.classList.toggle("open");
             hamburger.classList.toggle("open", isOpen);
@@ -1431,12 +1445,13 @@
             toggleMenu();
         });
         navLinks.querySelectorAll("a").forEach((a) =>
-            a.addEventListener("click", () => {
-                hamburger.classList.remove("open");
-                navLinks.classList.remove("open");
-                document.body.style.overflow = "";
-            })
+            a.addEventListener("click", () => closeMenu())
         );
+        document.addEventListener("click", (e) => {
+            if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 
