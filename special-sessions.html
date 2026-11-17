@@ -126,6 +126,8 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .brand {
@@ -135,11 +137,19 @@
             font-weight: 800;
             font-size: 1.15rem;
             color: var(--ink);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .brand span {
+            white-space: nowrap;
+            display: inline-block;
         }
 
         .brand em {
             font-style: normal;
             color: var(--primary);
+            white-space: nowrap;
         }
 
         .brand-divider {
@@ -815,6 +825,25 @@
                 font-size: 1.85rem;
             }
         }
+
+        @media (max-width: 480px) {
+            .brand-wrap {
+                gap: 8px;
+            }
+
+            .brand {
+                font-size: 1.02rem;
+            }
+
+            .brand-partner-logo {
+                height: 30px;
+                max-width: 105px;
+            }
+
+            .brand-divider {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 
@@ -1308,8 +1337,8 @@
                         </svg>
                         <h4>Proposal Template (.docx)</h4>
                         <p>MS Word format · Single Spaced · Ready to fill</p>
-                        <a href="SINSET_2027_Special_Session_Proposal_Template.docx"
-                            download="SINSET_2027_Special_Session_Proposal_Template.docx" class="btn btn-primary"
+                        <a href="https://docs.google.com/document/d/1aG9tlrP1qFUr38T1M6pgSjBTo4SZAIo8/edit?usp=sharing&ouid=115902923068582018800&rtpof=true&sd=true"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary"
                             style="width:100%;justify-content:center;">
                             Download Template
                         </a>

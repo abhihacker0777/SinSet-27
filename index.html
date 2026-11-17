@@ -215,6 +215,8 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .brand {
@@ -226,15 +228,23 @@
             color: var(--ink);
             text-decoration: none;
             transition: opacity 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .brand:hover {
             opacity: 0.88;
         }
 
+        .brand-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
         .brand-text em {
             font-style: normal;
             color: var(--primary);
+            white-space: nowrap;
         }
 
         .brand-divider {
