@@ -2975,35 +2975,63 @@
                 gap: 20px;
             }
 
+            .navbar {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                background: #ffffff;
+            }
+
+            .navbar.menu-open {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                z-index: 10000;
+            }
+
+            .brand-wrap {
+                position: relative;
+                z-index: 10002;
+            }
+
             .hamburger {
                 display: block;
-                z-index: 1001;
+                position: relative;
+                z-index: 10002;
             }
 
             .nav-links {
                 position: fixed;
                 top: 0;
-                right: -100%;
-                width: 100%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100vw;
                 height: 100vh;
                 height: 100dvh;
-                background: #fff;
+                background: #ffffff;
                 display: flex;
                 flex-direction: column;
                 align-items: stretch;
-                padding: 68px 24px 20px;
+                padding: 76px 24px 36px;
                 gap: 2px;
                 box-shadow: none;
-                transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
-                z-index: 1000;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.3s;
+                transform: translateX(100%);
+                opacity: 0;
+                z-index: 10001;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
+                overscroll-behavior: contain;
+                touch-action: pan-y;
                 visibility: hidden;
                 pointer-events: none;
             }
 
             .nav-links.open {
-                right: 0;
+                transform: translateX(0);
+                opacity: 1;
                 visibility: visible;
                 pointer-events: auto;
             }
@@ -4893,12 +4921,27 @@
         function closeMenu() {
             hamburger.classList.remove("open");
             navLinks.classList.remove("open");
+            if (navbar) navbar.classList.remove("menu-open");
+            document.documentElement.style.overflow = "";
             document.body.style.overflow = "";
+            document.documentElement.style.touchAction = "";
+            document.body.style.touchAction = "";
         }
         function toggleMenu() {
             const isOpen = navLinks.classList.toggle("open");
             hamburger.classList.toggle("open", isOpen);
-            document.body.style.overflow = isOpen ? "hidden" : "";
+            if (navbar) navbar.classList.toggle("menu-open", isOpen);
+            if (isOpen) {
+                document.documentElement.style.overflow = "hidden";
+                document.body.style.overflow = "hidden";
+                document.documentElement.style.touchAction = "none";
+                document.body.style.touchAction = "none";
+            } else {
+                document.documentElement.style.overflow = "";
+                document.body.style.overflow = "";
+                document.documentElement.style.touchAction = "";
+                document.body.style.touchAction = "";
+            }
         }
         hamburger.addEventListener("click", (e) => {
             e.stopPropagation();
