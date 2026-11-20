@@ -1609,40 +1609,41 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 6px;
+            gap: 8px;
             margin: 0;
         }
 
         .award-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.74rem;
+            gap: 8px;
+            font-size: 1.02rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            padding: 4px 12px;
+            letter-spacing: 0.04em;
+            padding: 8px 20px;
             border-radius: 999px;
             width: fit-content;
         }
 
         .award-badge.gold {
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(245, 158, 11, 0.12);
             color: #b45309;
-            border: 1px solid rgba(245, 158, 11, 0.25);
+            border: 1.5px solid rgba(245, 158, 11, 0.35);
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
         }
 
         .award-badge.gold::before {
             content: "";
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #d97706;
         }
 
         .award-content h4 {
             font-family: "Sora", sans-serif;
-            font-size: 1.12rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--navy);
             letter-spacing: -0.01em;
@@ -1688,6 +1689,11 @@
             .special-session-content h4,
             .award-content h4 {
                 font-size: 1.02rem;
+            }
+
+            .award-badge {
+                font-size: 0.88rem;
+                padding: 6px 14px;
             }
 
             .special-session-content p,
@@ -3981,8 +3987,8 @@
     <section class="section section-alt" id="speakers">
         <div class="container">
             <div class="section-head reveal">
-                <span class="eyebrow">Keynote Speaker</span>
-                <h2>Distinguished <span class="grad-text">Voices</span></h2>
+                <span class="eyebrow">Distinguished Voices</span>
+                <h2>Keynote Speaker</h2>
                 <p>Learn from leaders in academia, research and industry.</p>
             </div>
             <div class="speaker-grid keynote-grid-5"
@@ -4013,6 +4019,16 @@
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
+                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
+                                alt="Dr. Sunil Kumar" />
+                        </div>
+                    </div>
+                    <h3>Dr. Sunil Kumar</h3>
+                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
                             <img src="https://dl.dropboxusercontent.com/scl/fi/abtp37ur5ynmiyd7kq1t6/Passport-Amol-Pawar.jpg?rlkey=zrm7os9inxkzk2le6114b6uyn"
                                 alt="Dr. Amol D Pawar" />
                         </div>
@@ -4032,23 +4048,12 @@
                     <p class="speaker-aff">Assistant Professor, Department of Civil Engineering<br>Indian Institute
                         of Technology Indore, India</p>
                 </div>
-                <div class="speaker-card reveal">
-                    <div class="speaker-avatar">
-                        <div class="avatar-ring">
-                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
-                                alt="Dr. Sunil Kumar" />
-                        </div>
-                    </div>
-                    <h3>Dr. Sunil Kumar</h3>
-                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
-                </div>
             </div>
 
             <!-- === Invited Speakers === -->
             <div class="invited-speaker-block reveal" style="margin-top: 48px; text-align: center;">
                 <div style="margin-bottom: 24px;">
                     <span class="eyebrow">Invited Speaker</span>
-                    <h2>Distinguished <span class="grad-text">Voices</span></h2>
                 </div>
                 <div class="speaker-grid invited-grid">
                     <div class="speaker-card reveal">
