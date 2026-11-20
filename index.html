@@ -260,6 +260,12 @@
             display: inline-block;
         }
 
+        .brand-partner-logos {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .brand-partner-link {
             display: inline-flex;
             align-items: center;
@@ -1417,7 +1423,7 @@
             border: 1px solid rgba(14, 122, 95, 0.22);
             border-radius: 20px;
             padding: 22px 28px;
-            margin: 32px auto 0;
+            margin: 36px auto 0;
             max-width: 1104px;
             box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(14, 122, 95, 0.06);
             overflow: hidden;
@@ -1530,10 +1536,8 @@
         /* ---------- Conference Awards ---------- */
         .awards-row {
             display: flex;
-            gap: 24px;
             justify-content: center;
-            margin-top: 32px;
-            flex-wrap: wrap;
+            margin-top: 24px;
             width: 100%;
         }
 
@@ -1544,11 +1548,11 @@
             align-items: center;
             background: #ffffff;
             border-radius: 20px;
-            padding: 24px 30px;
-            flex: 1 1 400px;
-            max-width: 540px;
-            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.07), 0 2px 6px rgba(11, 31, 58, 0.04);
-            border: 1px solid rgba(11, 31, 58, 0.08);
+            padding: 20px 28px;
+            max-width: 560px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.25);
             overflow: hidden;
             transition: all 0.35s var(--ease);
         }
@@ -1560,99 +1564,85 @@
             left: 0;
             right: 0;
             height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f5b942);
             transition: height 0.3s var(--ease);
         }
 
-        .award.award-paper::before {
-            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f5b942);
-        }
-
-        .award.award-presentation::before {
-            background: linear-gradient(90deg, #0e7a5f, #16a34a, #2dd4a7);
-        }
-
         .award:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(11, 31, 58, 0.12), 0 4px 12px rgba(245, 185, 66, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(11, 31, 58, 0.08), 0 4px 12px rgba(245, 185, 66, 0.15);
+            border-color: rgba(245, 158, 11, 0.45);
         }
 
         .award:hover::before {
             height: 5px;
         }
 
-        .award.award-paper:hover {
-            border-color: rgba(245, 158, 11, 0.45);
-        }
-
-        .award.award-presentation:hover {
-            border-color: rgba(14, 122, 95, 0.45);
-        }
-
         .award-icon-box {
             flex-shrink: 0;
-            width: 58px;
-            height: 58px;
-            border-radius: 16px;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.35s var(--ease);
             position: relative;
-        }
-
-        .award.award-paper .award-icon-box {
             background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(251, 191, 36, 0.22));
             color: #d97706;
             border: 1.5px solid rgba(245, 158, 11, 0.3);
-            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.16);
-        }
-
-        .award.award-presentation .award-icon-box {
-            background: linear-gradient(135deg, rgba(14, 122, 95, 0.12), rgba(45, 212, 167, 0.2));
-            color: #0e7a5f;
-            border: 1.5px solid rgba(14, 122, 95, 0.3);
-            box-shadow: 0 6px 16px rgba(14, 122, 95, 0.16);
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.14);
         }
 
         .award:hover .award-icon-box {
-            transform: scale(1.1) rotate(-4deg);
+            transform: scale(1.08) rotate(-3deg);
         }
 
         .award-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            justify-content: center;
+        }
+
+        .award-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            margin: 0;
         }
 
         .award-badge {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.68rem;
-            font-weight: 800;
+            gap: 6px;
+            font-size: 0.74rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 3px 10px;
-            border-radius: 20px;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 999px;
             width: fit-content;
-            margin-bottom: 2px;
         }
 
         .award-badge.gold {
-            background: rgba(245, 158, 11, 0.12);
+            background: rgba(245, 158, 11, 0.1);
             color: #b45309;
             border: 1px solid rgba(245, 158, 11, 0.25);
         }
 
-        .award-badge.teal {
-            background: rgba(14, 122, 95, 0.1);
-            color: #0e7a5f;
-            border: 1px solid rgba(14, 122, 95, 0.22);
+        .award-badge.gold::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #d97706;
         }
 
-        .award h4 {
+        .award-content h4 {
             font-family: "Sora", sans-serif;
-            font-size: 1.08rem;
+            font-size: 1.12rem;
             font-weight: 700;
             color: var(--navy);
             letter-spacing: -0.01em;
@@ -1660,77 +1650,127 @@
             line-height: 1.35;
         }
 
-        .award p {
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.45;
-            margin: 0;
-        }
-
         @media (max-width: 600px) {
+
             .special-session-card {
                 padding: 20px 18px;
-                margin-top: 30px;
+                margin-top: 28px;
                 border-radius: 16px;
-            }
-
-            .special-session-inner {
-                flex-direction: column;
-                gap: 14px;
-            }
-
-            .special-session-icon {
-                width: 42px;
-                height: 42px;
-                border-radius: 12px;
-            }
-
-            .special-session-icon svg {
-                width: 22px;
-                height: 22px;
-            }
-
-            .special-session-content h4 {
-                font-size: 1.02rem;
-            }
-
-            .special-session-content p {
-                font-size: 0.88rem;
-                line-height: 1.6;
-            }
-
-            .awards-row {
-                gap: 14px;
-                margin-top: 26px;
             }
 
             .award {
-                padding: 18px 20px;
-                gap: 16px;
+                padding: 20px 18px;
                 border-radius: 16px;
+                max-width: 100%;
             }
 
+            .special-session-inner,
+            .award {
+                flex-direction: column;
+                gap: 14px;
+                align-items: flex-start;
+            }
+
+            .special-session-icon,
             .award-icon-box {
-                width: 48px;
-                height: 48px;
-                border-radius: 13px;
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+                margin-top: 0;
             }
 
+            .special-session-icon svg,
             .award-icon-box svg {
                 width: 22px;
                 height: 22px;
             }
 
-            .award h4 {
-                font-size: 0.98rem;
+            .special-session-content h4,
+            .award-content h4 {
+                font-size: 1.02rem;
             }
 
-            .award p {
-                font-size: 0.82rem;
+            .special-session-content p,
+            .award-content p {
+                font-size: 0.88rem;
+                line-height: 1.6;
             }
         }
 
         /* ---------- Speakers ---------- */
+        .keynote-grid-5 {
+            display: grid !important;
+            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+            gap: 16px !important;
+            align-items: stretch;
+        }
+
+        .keynote-grid-5 .speaker-card {
+            padding: 26px 12px !important;
+            min-width: 0 !important;
+        }
+
+        .keynote-grid-5 .avatar-ring {
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+        .keynote-grid-5 .speaker-card h3 {
+            font-size: 1.05rem !important;
+            margin-bottom: 6px;
+            white-space: normal;
+        }
+
+        .keynote-grid-5 .speaker-aff {
+            font-size: 0.8rem !important;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .invited-grid {
+            display: flex !important;
+            justify-content: center !important;
+            gap: 24px !important;
+            flex-wrap: wrap !important;
+        }
+
+        .invited-grid .speaker-card {
+            flex: 0 1 340px !important;
+            width: 100% !important;
+            max-width: 360px !important;
+        }
+
+        @media (max-width: 992px) and (min-width: 769px) {
+            .keynote-grid-5 {
+                grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+                gap: 10px !important;
+            }
+
+            .keynote-grid-5 .speaker-card {
+                padding: 18px 8px !important;
+            }
+
+            .keynote-grid-5 .avatar-ring {
+                width: 84px !important;
+                height: 84px !important;
+            }
+
+            .keynote-grid-5 .speaker-card h3 {
+                font-size: 0.92rem !important;
+            }
+
+            .keynote-grid-5 .speaker-aff {
+                font-size: 0.74rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .keynote-grid-5 {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+                gap: 16px !important;
+            }
+        }
+
         .speaker-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -3308,11 +3348,18 @@
                     <span class="brand-text">SINSET <em>2027</em></span>
                 </a>
                 <span class="brand-divider" aria-hidden="true">|</span>
-                <a href="https://poornima.edu.in" target="_blank" rel="noopener noreferrer" class="brand-partner-link"
-                    title="Poornima University (poornima.edu.in)">
-                    <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Poornima_University.png/250px-Poornima_University.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
-                        alt="Poornima University Logo" class="brand-partner-logo" />
-                </a>
+                <div class="brand-partner-logos">
+                    <a href="https://poornima.edu.in" target="_blank" rel="noopener noreferrer"
+                        class="brand-partner-link" title="Poornima University (poornima.edu.in)">
+                        <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Poornima_University.png/250px-Poornima_University.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+                            alt="Poornima University Logo" class="brand-partner-logo" />
+                    </a>
+                    <a href="https://www.uniraj.ac.in" target="_blank" rel="noopener noreferrer"
+                        class="brand-partner-link" title="University of Rajasthan (uniraj.ac.in)">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/University_of_Rajasthan_logo.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled"
+                            alt="University of Rajasthan Logo" class="brand-partner-logo" />
+                    </a>
+                </div>
             </div>
             <nav class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
@@ -3893,7 +3940,8 @@
                             <h4>Call for Special Sessions</h4>
                         </div>
                         <p>The conference will include special sessions on highly specialized topic areas, reporting
-                            technical trends and breakthroughs within the scope of the conference. Special Sessions are
+                            technical trends and breakthroughs within the scope of the conference. Special Sessions
+                            are
                             organized at the initiative of one or more individuals, who must adhere to specific
                             procedures published <a href="special-sessions.html" target="_blank"
                                 rel="noopener noreferrer" class="special-session-link" id="specialSessionLink"
@@ -3908,33 +3956,21 @@
                 </div>
             </div>
 
+            <!-- Awards Row -->
             <div class="awards-row reveal">
                 <div class="award award-paper">
-                    <div class="award-icon-box">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    <div class="award-icon-box" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="8" r="6" />
                             <path d="M15.5 13 17 22l-5-3-5 3 1.5-9" />
                         </svg>
                     </div>
                     <div class="award-content">
-                        <span class="award-badge gold">Excellence Award</span>
-                        <h4>Best Research Paper Award</h4>
-                        <p>Awarded for overall research excellence per technical session.</p>
-                    </div>
-                </div>
-                <div class="award award-presentation">
-                    <div class="award-icon-box">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="9" y="2" width="6" height="12" rx="3" />
-                            <path d="M5 10a7 7 0 0 0 14 0M12 17v4M9 21h6" />
-                        </svg>
-                    </div>
-                    <div class="award-content">
-                        <span class="award-badge teal">Presentation Award</span>
-                        <h4>Best Oral Presentation Award</h4>
-                        <p>Awarded for presentation excellence and mastery per session.</p>
+                        <div class="award-header">
+                            <span class="award-badge gold">Best Research Paper Award</span>
+                            <h4>Per technical session.</h4>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3949,7 +3985,8 @@
                 <h2>Distinguished <span class="grad-text">Voices</span></h2>
                 <p>Learn from leaders in academia, research and industry.</p>
             </div>
-            <div class="speaker-grid">
+            <div class="speaker-grid keynote-grid-5"
+                style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
@@ -3965,22 +4002,22 @@
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
                             <img src="https://dl.dropboxusercontent.com/scl/fi/qyyhr4w1garl00kqv44p2/citations.jpeg?rlkey=67p7wi96t20c56r1128gvamq4&st"
-                                alt="Dr. Nazrul HsanM" />
+                                alt="Dr. Nazrul Hsan" />
                         </div>
                     </div>
-                    <h3> Dr. Nazrul Hsan</h3>
-                    <p class="speaker-aff">Posdoctoral Felllow, Department of Materials Science and
-                        Engineering<br>Konkuk University, Seoul
+                    <h3>Dr. Nazrul Hsan</h3>
+                    <p class="speaker-aff">Postdoctoral Fellow, Department of Materials Science and
+                        Engineering<br>Konkuk University, Seoul,
                         Republic of Korea</p>
                 </div>
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
                             <img src="https://dl.dropboxusercontent.com/scl/fi/abtp37ur5ynmiyd7kq1t6/Passport-Amol-Pawar.jpg?rlkey=zrm7os9inxkzk2le6114b6uyn"
-                                alt="Dr. Amol D pawar" />
+                                alt="Dr. Amol D Pawar" />
                         </div>
                     </div>
-                    <h3>Dr. Amol D pawar</h3>
+                    <h3>Dr. Amol D Pawar</h3>
                     <p class="speaker-aff">Associate Professor, Department of School of Construction<br>NICMAR
                         University, India</p>
                 </div>
@@ -3994,6 +4031,48 @@
                     <h3>Dr. Ashootosh Mandpe</h3>
                     <p class="speaker-aff">Assistant Professor, Department of Civil Engineering<br>Indian Institute
                         of Technology Indore, India</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
+                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
+                                alt="Dr. Sunil Kumar" />
+                        </div>
+                    </div>
+                    <h3>Dr. Sunil Kumar</h3>
+                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
+                </div>
+            </div>
+
+            <!-- === Invited Speakers === -->
+            <div class="invited-speaker-block reveal" style="margin-top: 48px; text-align: center;">
+                <div style="margin-bottom: 24px;">
+                    <span class="eyebrow">Invited Speaker</span>
+                    <h2>Distinguished <span class="grad-text">Voices</span></h2>
+                </div>
+                <div class="speaker-grid invited-grid">
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://dl.dropboxusercontent.com/scl/fi/9cy1fcjt443homcrsf1n5/Passport-Size-Photo-Subhash-Thota.jpg.jpeg?rlkey=5rz560inrka0jsqv1ytkt9zjf"
+                                    alt="Dr. Subhash Thota" />
+                            </div>
+                        </div>
+                        <h3>Dr. Subhash Thota</h3>
+                        <p class="speaker-aff">Professor,
+                            Department of Physics,<br>IIT Guwahati, INDIA</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://dl.dropboxusercontent.com/scl/fi/ij02dbbnchsahrxfto96q/my-photo-Kumar-Anjneya.jpg.jpeg?rlkey=r105rtgwtozswe7qou9m74ikq"
+                                    alt="Dr. Kumar Anjneya" />
+                            </div>
+                        </div>
+                        <h3>Dr. Kumar Anjneya</h3>
+                        <p class="speaker-aff">Research Associate<br>International Centre of Excellence for Dams
+                            (ICED)<br>Indian Institute of Science (IISc), Bengaluru, India</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4272,7 +4351,7 @@
                     </div>
                     <div class="person-card">
                         <div class="p-avatar"><img
-                                src="https://media.licdn.com/dms/image/v2/D4E03AQGKfGi-Ya2-jg/profile-displayphoto-crop_800_800/B4EaBWnUMTIgAI-/0/1788159544390?e=1795046400&v=beta&t=f2X7Gfk8cDSKcgrLYLgo6sg1M5Yf8sWsy1bMfwiJxX0"
+                                src="https://media.licdn.com/dms/image/v2/D4E03AQGKfGi-Ya2-jg/profile-displayphoto-crop_800_800/B4EaBWnUMTIgAI-/0/1788159544390?e=1796860800&v=beta&t=h-toiEfsk73G5lVsdnbTuRsBUrIKhcUyOJIr3wpErNM"
                                 alt="Dr. Sama Jain" style="width:100%;height:100%;object-fit:cover;border-radius:50%">
                         </div>
                         <h4>Dr. Sama Jain</h4>
@@ -4319,7 +4398,7 @@
                 <div class="cards-grid">
                     <div class="person-card">
                         <div class="p-avatar"><img
-                                src="https://media.licdn.com/dms/image/v2/C5603AQGTErwaUsNkxg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1643719223897?e=1795046400&v=beta&t=eIzOSPDHyoD-2Moy3zWytSHWy7EH5CZv8mwyhwuAivA"
+                                src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=O40kMF4AAAAJ&citpid=3"
                                 alt="Dr. Randhir Singh Baghel"
                                 style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
                         <h4>Dr. Randhir Singh Baghel</h4>
@@ -4394,7 +4473,7 @@
                             <div class="cm-member"><strong>Dr. Shiva Soni</strong><span>Associate Professor (FSH) ·
                                     Poornima
                                     University</span></div>
-                            <div class="cm-member"><strong>Dr. Soanl Jain</strong><span>Associate Professor (FSH) ·
+                            <div class="cm-member"><strong>Dr. Sonal Jain</strong><span>Associate Professor (FSH) ·
                                     Poornima
                                     University</span></div>
                             <div class="cm-member"><strong>Dr. Poonam Sain</strong><span>Assistant Librarian ·
@@ -4424,7 +4503,7 @@
                             <h4>Finance Committee</h4>
                             <div class="cm-member"><strong>Dr. Rakesh Aggarwal</strong><span>Associate Professor (FSH) ·
                                     Poornima University</span></div>
-                            <div class="cm-member"><strong>Dr. Soanl Jain</strong><span>Associate Professor (FSH) ·
+                            <div class="cm-member"><strong>Dr. Sonal Jain</strong><span>Associate Professor (FSH) ·
                                     Poornima
                                     University</span></div>
                             <div class="cm-member"><strong>Ms. Poonam Sharma</strong><span>CFO · Poornima

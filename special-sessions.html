@@ -206,6 +206,24 @@
             line-height: 1;
         }
 
+        .brand-partner-logos {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-partner-link {
+            display: inline-flex;
+            align-items: center;
+            line-height: 0;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .brand-partner-link:hover {
+            opacity: 0.82;
+            transform: translateY(-1px);
+        }
+
         .brand-partner-logo {
             height: 38px;
             width: auto;
@@ -504,6 +522,86 @@
 
         .content-card p:last-child {
             margin-bottom: 0;
+        }
+
+        /* ---------- Approved Special Sessions ---------- */
+        .approved-sessions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .session-card {
+            background: #f8fafc;
+            border: 1px solid rgba(11, 31, 58, 0.08);
+            border-left: 4px solid var(--primary);
+            border-radius: 14px;
+            padding: 22px 24px;
+            transition: all 0.25s ease;
+        }
+
+        .session-card:hover {
+            background: #ffffff;
+            border-color: rgba(14, 122, 95, 0.3);
+            border-left-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(11, 31, 58, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .session-card-header {
+            margin-bottom: 12px;
+        }
+
+        .session-card h3 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin: 0;
+            line-height: 1.45;
+            font-weight: 700;
+        }
+
+        .session-tag {
+            display: inline-block;
+            background: rgba(14, 122, 95, 0.12);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-right: 8px;
+            vertical-align: 1px;
+            letter-spacing: 0.02em;
+        }
+
+        .session-organizers h4 {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 14px 0 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .organizers-list {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--ink-2);
+            font-size: 0.94rem;
+            line-height: 1.65;
+        }
+
+        .organizers-list li {
+            margin-bottom: 6px;
+        }
+
+        .organizers-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .organizers-list strong {
+            color: var(--ink);
+            font-weight: 600;
         }
 
         /* ---------- Benefits Grid ---------- */
@@ -979,11 +1077,18 @@
                     <span>SINSET <em>2027</em></span>
                 </a>
                 <span class="brand-divider" aria-hidden="true">|</span>
-                <a href="https://poornima.edu.in" target="_blank" rel="noopener noreferrer" class="brand-partner-link"
-                    title="Poornima University">
-                    <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Poornima_University.png/250px-Poornima_University.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail"
-                        alt="Poornima University Logo" class="brand-partner-logo" />
-                </a>
+                <div class="brand-partner-logos">
+                    <a href="https://poornima.edu.in" target="_blank" rel="noopener noreferrer"
+                        class="brand-partner-link" title="Poornima University">
+                        <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/f/f4/Poornima_University.png/250px-Poornima_University.png?utm_source=en.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail"
+                            alt="Poornima University Logo" class="brand-partner-logo" />
+                    </a>
+                    <a href="https://www.uniraj.ac.in" target="_blank" rel="noopener noreferrer"
+                        class="brand-partner-link" title="University of Rajasthan">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/University_of_Rajasthan_logo.png?utm_source=en.wikipedia.org&amp;utm_campaign=imageinfo&amp;utm_content=thumbnail_unscaled"
+                            alt="University of Rajasthan Logo" class="brand-partner-logo" />
+                    </a>
+                </div>
             </div>
             <nav class="nav-links" id="navLinks">
                 <a href="index.html#home">Home</a>
@@ -1102,6 +1207,36 @@
                         specific areas
                         of scientific and technological advancement.
                     </p>
+                </article>
+
+                <!-- Approved Special Sessions Section -->
+                <article class="content-card" id="approved-sessions">
+                    <h2>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 11l3 3L22 4" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                        </svg>
+                        Approved Special Sessions
+                    </h2>
+                    <p>
+                        The following Special Sessions have been formally approved for <strong>SINSET 2027</strong>:
+                    </p>
+
+                    <div class="approved-sessions-list">
+                        <div class="session-card">
+                            <div class="session-card-header">
+                                <h3><span class="session-tag">SS1</span> Emerging Cyber Threats and Intelligent Security Solutions in the AI Era</h3>
+                            </div>
+                            <div class="session-organizers">
+                                <h4>Organizers:</h4>
+                                <ol class="organizers-list">
+                                    <li><strong>Dr. Amrita Yadav</strong>, Assistant Professor, Rashtriya Raksha University, Lucknow, India.</li>
+                                    <li><strong>Dr. Abhilasha</strong>, Associate Professor, Department of Computer Science Engineering, JECRC Foundation, Jaipur, India.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
                 <!-- Benefits Section -->
