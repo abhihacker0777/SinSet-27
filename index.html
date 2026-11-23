@@ -1596,9 +1596,21 @@
         }
 
         .award.award-reg {
-            border: 1px solid rgba(14, 122, 95, 0.25);
-            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(14, 122, 95, 0.06);
+            border: 1.5px solid rgba(14, 122, 95, 0.35);
+            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 0 16px rgba(45, 212, 167, 0.3);
             cursor: pointer;
+            animation: pulse-card 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-card {
+            0%, 100% {
+                border-color: rgba(14, 122, 95, 0.3);
+                box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 0 0 rgba(45, 212, 167, 0);
+            }
+            50% {
+                border-color: rgba(14, 122, 95, 0.85);
+                box-shadow: 0 12px 34px rgba(14, 122, 95, 0.18), 0 0 24px rgba(45, 212, 167, 0.55);
+            }
         }
 
         .award.award-reg::before {
@@ -1608,14 +1620,21 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #0e7a5f, #16a34a, #2dd4a7);
+            background: linear-gradient(90deg, #0e7a5f, #16a34a, #2dd4a7, #16a34a, #0e7a5f);
+            background-size: 200% 100%;
+            animation: shimmer-bar 2.5s infinite linear;
             transition: height 0.3s var(--ease);
+        }
+
+        @keyframes shimmer-bar {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
         }
 
         .award.award-reg:hover {
             transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(11, 31, 58, 0.08), 0 4px 12px rgba(14, 122, 95, 0.15);
-            border-color: rgba(14, 122, 95, 0.45);
+            box-shadow: 0 16px 36px rgba(11, 31, 58, 0.1), 0 0 28px rgba(45, 212, 167, 0.65);
+            border-color: rgba(14, 122, 95, 0.7);
         }
 
         .award:hover::before {
@@ -1700,6 +1719,19 @@
             color: #0e7a5f;
             border: 1.5px solid rgba(14, 122, 95, 0.35);
             box-shadow: 0 2px 8px rgba(14, 122, 95, 0.12);
+            animation: badge-flash 2.2s infinite ease-in-out;
+        }
+
+        @keyframes badge-flash {
+            0%, 100% {
+                background: rgba(14, 122, 95, 0.12);
+                border-color: rgba(14, 122, 95, 0.35);
+            }
+            50% {
+                background: rgba(45, 212, 167, 0.25);
+                border-color: rgba(14, 122, 95, 0.65);
+                box-shadow: 0 0 12px rgba(45, 212, 167, 0.5);
+            }
         }
 
         .award-badge.green::before {
@@ -1708,6 +1740,23 @@
             height: 8px;
             border-radius: 50%;
             background: #0e7a5f;
+            box-shadow: 0 0 0 0 rgba(14, 122, 95, 0.7);
+            animation: pulse-beacon 1.6s infinite;
+        }
+
+        @keyframes pulse-beacon {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(14, 122, 95, 0.7);
+            }
+            70% {
+                transform: scale(1.15);
+                box-shadow: 0 0 0 7px rgba(14, 122, 95, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(14, 122, 95, 0);
+            }
         }
 
         .award-content h4 {
@@ -1773,33 +1822,35 @@
         }
 
         /* ---------- Speakers ---------- */
-        .keynote-grid-5 {
-            display: grid !important;
-            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-            gap: 16px !important;
-            align-items: stretch;
+        .keynote-grid-4 {
+            display: flex !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+            gap: 24px !important;
         }
 
-        .keynote-grid-5 .speaker-card {
-            padding: 26px 12px !important;
-            min-width: 0 !important;
+        .keynote-grid-4 .speaker-card {
+            flex: 0 1 calc(25% - 18px) !important;
+            max-width: 285px !important;
+            min-width: 250px !important;
+            padding: 38px 22px !important;
         }
 
-        .keynote-grid-5 .avatar-ring {
-            width: 100px !important;
-            height: 100px !important;
+        .keynote-grid-4 .avatar-ring {
+            width: 118px !important;
+            height: 118px !important;
         }
 
-        .keynote-grid-5 .speaker-card h3 {
-            font-size: 1.05rem !important;
-            margin-bottom: 6px;
-            white-space: normal;
+        .keynote-grid-4 .speaker-card h3 {
+            font-size: 1.25rem !important;
+            margin-bottom: 6px !important;
+            white-space: normal !important;
         }
 
-        .keynote-grid-5 .speaker-aff {
-            font-size: 0.8rem !important;
-            line-height: 1.45;
-            word-break: break-word;
+        .keynote-grid-4 .speaker-aff {
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+            word-break: break-word !important;
         }
 
         .invited-grid {
@@ -1813,36 +1864,40 @@
             flex: 0 1 340px !important;
             width: 100% !important;
             max-width: 360px !important;
+            padding: 38px 24px !important;
         }
 
-        @media (max-width: 992px) and (min-width: 769px) {
-            .keynote-grid-5 {
-                grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
-                gap: 10px !important;
-            }
+        .invited-grid .avatar-ring {
+            width: 118px !important;
+            height: 118px !important;
+        }
 
-            .keynote-grid-5 .speaker-card {
-                padding: 18px 8px !important;
-            }
+        .invited-grid .speaker-card h3 {
+            font-size: 1.25rem !important;
+            margin-bottom: 6px !important;
+        }
 
-            .keynote-grid-5 .avatar-ring {
-                width: 84px !important;
-                height: 84px !important;
-            }
+        .invited-grid .speaker-aff {
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+        }
 
-            .keynote-grid-5 .speaker-card h3 {
-                font-size: 0.92rem !important;
-            }
-
-            .keynote-grid-5 .speaker-aff {
-                font-size: 0.74rem !important;
+        @media (max-width: 1150px) and (min-width: 769px) {
+            .keynote-grid-4 .speaker-card {
+                flex: 0 1 calc(33.333% - 16px) !important;
+                max-width: 300px !important;
             }
         }
 
         @media (max-width: 768px) {
-            .keynote-grid-5 {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+            .keynote-grid-4 {
                 gap: 16px !important;
+            }
+
+            .keynote-grid-4 .speaker-card {
+                flex: 1 1 260px !important;
+                max-width: 360px !important;
+                padding: 30px 20px !important;
             }
         }
 
@@ -4033,6 +4088,22 @@
 
             <!-- Awards & Action Row -->
             <div class="awards-row reveal">
+                <div class="award award-paper">
+                    <div class="award-icon-box" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="6" />
+                            <path d="M15.5 13 17 22l-5-3-5 3 1.5-9" />
+                        </svg>
+                    </div>
+                    <div class="award-content">
+                        <div class="award-header">
+                            <span class="award-badge gold">Best Research Paper Award</span>
+                            <h4>Per technical session.</h4>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer" class="award award-reg">
                     <div class="award-icon-box" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -4049,22 +4120,6 @@
                         </div>
                     </div>
                 </a>
-
-                <div class="award award-paper">
-                    <div class="award-icon-box" aria-hidden="true">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="8" r="6" />
-                            <path d="M15.5 13 17 22l-5-3-5 3 1.5-9" />
-                        </svg>
-                    </div>
-                    <div class="award-content">
-                        <div class="award-header">
-                            <span class="award-badge gold">Best Research Paper Award</span>
-                            <h4>Per technical session.</h4>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -4077,8 +4132,7 @@
                 <h2 class="sub-heading" style="font-size: clamp(1.15rem, 2.4vw, 1.35rem); font-weight: 700; color: var(--navy); margin-top: -6px; margin-bottom: 12px; letter-spacing: -0.01em;">Keynote Speaker</h2>
                 <p>Learn from leaders in academia, research and industry.</p>
             </div>
-            <div class="speaker-grid keynote-grid-5"
-                style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px;">
+            <div class="speaker-grid keynote-grid-4">
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
@@ -4105,16 +4159,6 @@
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
-                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
-                                alt="Dr. Sunil Kumar" />
-                        </div>
-                    </div>
-                    <h3>Dr. Sunil Kumar</h3>
-                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
-                </div>
-                <div class="speaker-card reveal">
-                    <div class="speaker-avatar">
-                        <div class="avatar-ring">
                             <img src="https://dl.dropboxusercontent.com/scl/fi/abtp37ur5ynmiyd7kq1t6/Passport-Amol-Pawar.jpg?rlkey=zrm7os9inxkzk2le6114b6uyn"
                                 alt="Dr. Amol D Pawar" />
                         </div>
@@ -4133,6 +4177,16 @@
                     <h3>Dr. Ashootosh Mandpe</h3>
                     <p class="speaker-aff">Assistant Professor, Department of Civil Engineering<br>Indian Institute
                         of Technology Indore, India</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
+                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
+                                alt="Dr. Sunil Kumar" />
+                        </div>
+                    </div>
+                    <h3>Dr. Sunil Kumar</h3>
+                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
                 </div>
             </div>
 
