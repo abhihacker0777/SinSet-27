@@ -942,6 +942,16 @@
             margin-bottom: 16px;
         }
 
+        .section-head h2.sub-heading,
+        .section-head h2 + h2 {
+            font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: -6px;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
         .section-head p {
             color: var(--muted);
             font-size: 1.04rem;
@@ -1533,12 +1543,17 @@
             text-decoration-color: var(--primary-dark);
         }
 
-        /* ---------- Conference Awards ---------- */
+        /* ---------- Conference Awards & Registration Row ---------- */
         .awards-row {
             display: flex;
+            gap: 24px;
             justify-content: center;
             margin-top: 24px;
             width: 100%;
+            flex-wrap: wrap;
+            max-width: 1104px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .award {
@@ -1549,15 +1564,21 @@
             background: #ffffff;
             border-radius: 20px;
             padding: 20px 28px;
-            max-width: 560px;
+            flex: 1 1 380px;
+            max-width: 540px;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(245, 158, 11, 0.06);
-            border: 1px solid rgba(245, 158, 11, 0.25);
             overflow: hidden;
             transition: all 0.35s var(--ease);
+            text-decoration: none;
+            color: inherit;
         }
 
-        .award::before {
+        .award.award-paper {
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(245, 158, 11, 0.06);
+        }
+
+        .award.award-paper::before {
             content: "";
             position: absolute;
             top: 0;
@@ -1568,10 +1589,33 @@
             transition: height 0.3s var(--ease);
         }
 
-        .award:hover {
+        .award.award-paper:hover {
             transform: translateY(-3px);
             box-shadow: 0 16px 36px rgba(11, 31, 58, 0.08), 0 4px 12px rgba(245, 185, 66, 0.15);
             border-color: rgba(245, 158, 11, 0.45);
+        }
+
+        .award.award-reg {
+            border: 1px solid rgba(14, 122, 95, 0.25);
+            box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 2px 8px rgba(14, 122, 95, 0.06);
+            cursor: pointer;
+        }
+
+        .award.award-reg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0e7a5f, #16a34a, #2dd4a7);
+            transition: height 0.3s var(--ease);
+        }
+
+        .award.award-reg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(11, 31, 58, 0.08), 0 4px 12px rgba(14, 122, 95, 0.15);
+            border-color: rgba(14, 122, 95, 0.45);
         }
 
         .award:hover::before {
@@ -1588,10 +1632,20 @@
             justify-content: center;
             transition: all 0.35s var(--ease);
             position: relative;
+        }
+
+        .award.award-paper .award-icon-box {
             background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(251, 191, 36, 0.22));
             color: #d97706;
             border: 1.5px solid rgba(245, 158, 11, 0.3);
             box-shadow: 0 4px 14px rgba(245, 158, 11, 0.14);
+        }
+
+        .award.award-reg .award-icon-box {
+            background: linear-gradient(135deg, rgba(14, 122, 95, 0.12), rgba(45, 212, 167, 0.2));
+            color: #0e7a5f;
+            border: 1.5px solid rgba(14, 122, 95, 0.3);
+            box-shadow: 0 4px 14px rgba(14, 122, 95, 0.14);
         }
 
         .award:hover .award-icon-box {
@@ -1639,6 +1693,21 @@
             height: 8px;
             border-radius: 50%;
             background: #d97706;
+        }
+
+        .award-badge.green {
+            background: rgba(14, 122, 95, 0.12);
+            color: #0e7a5f;
+            border: 1.5px solid rgba(14, 122, 95, 0.35);
+            box-shadow: 0 2px 8px rgba(14, 122, 95, 0.12);
+        }
+
+        .award-badge.green::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #0e7a5f;
         }
 
         .award-content h4 {
@@ -3422,7 +3491,7 @@
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg></a>
-                <a href="#registrations" class="btn btn-ghost">Register Now</a>
+                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Register Now</a>
             </div>
             <div class="countdown reveal" id="countdown">
                 <div class="cd-label">Conference starts in</div>
@@ -3962,8 +4031,25 @@
                 </div>
             </div>
 
-            <!-- Awards Row -->
+            <!-- Awards & Action Row -->
             <div class="awards-row reveal">
+                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer" class="award award-reg">
+                    <div class="award-icon-box" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                            <path d="M9 14l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="award-content">
+                        <div class="award-header">
+                            <span class="award-badge green">Register Now</span>
+                            <h4>Fill the Registration Form <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="vertical-align:-1px;display:inline-block;margin-left:3px;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></h4>
+                        </div>
+                    </div>
+                </a>
+
                 <div class="award award-paper">
                     <div class="award-icon-box" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -3987,8 +4073,8 @@
     <section class="section section-alt" id="speakers">
         <div class="container">
             <div class="section-head reveal">
-                <span class="eyebrow">Distinguished Voices</span>
-                <h2>Keynote Speaker</h2>
+                <h2>Distinguished <span class="grad-text">Voices</span></h2>
+                <h2 class="sub-heading" style="font-size: clamp(1.15rem, 2.4vw, 1.35rem); font-weight: 700; color: var(--navy); margin-top: -6px; margin-bottom: 12px; letter-spacing: -0.01em;">Keynote Speaker</h2>
                 <p>Learn from leaders in academia, research and industry.</p>
             </div>
             <div class="speaker-grid keynote-grid-5"
@@ -4299,6 +4385,15 @@
                     <div class="reg-window warn"><span class="rw-date">After Feb 15, 2027</span>
                         <h5>Late Registration</h5>
                         <p>Higher late fees apply — avoid delays.</p>
+                    </div>
+                    <div style="margin-top: 22px;">
+                        <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">
+                            Register Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" style="margin-left: 6px;">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
