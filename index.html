@@ -943,7 +943,7 @@
         }
 
         .section-head h2.sub-heading,
-        .section-head h2 + h2 {
+        .section-head h2+h2 {
             font-size: clamp(1.15rem, 2.4vw, 1.35rem);
             font-weight: 700;
             color: var(--navy);
@@ -1603,10 +1603,13 @@
         }
 
         @keyframes pulse-card {
-            0%, 100% {
+
+            0%,
+            100% {
                 border-color: rgba(14, 122, 95, 0.3);
                 box-shadow: 0 10px 30px rgba(11, 31, 58, 0.05), 0 0 0 rgba(45, 212, 167, 0);
             }
+
             50% {
                 border-color: rgba(14, 122, 95, 0.85);
                 box-shadow: 0 12px 34px rgba(14, 122, 95, 0.18), 0 0 24px rgba(45, 212, 167, 0.55);
@@ -1627,8 +1630,13 @@
         }
 
         @keyframes shimmer-bar {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+            0% {
+                background-position: 100% 0;
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
         }
 
         .award.award-reg:hover {
@@ -1723,10 +1731,13 @@
         }
 
         @keyframes badge-flash {
-            0%, 100% {
+
+            0%,
+            100% {
                 background: rgba(14, 122, 95, 0.12);
                 border-color: rgba(14, 122, 95, 0.35);
             }
+
             50% {
                 background: rgba(45, 212, 167, 0.25);
                 border-color: rgba(14, 122, 95, 0.65);
@@ -1749,10 +1760,12 @@
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(14, 122, 95, 0.7);
             }
+
             70% {
                 transform: scale(1.15);
                 box-shadow: 0 0 0 7px rgba(14, 122, 95, 0);
             }
+
             100% {
                 transform: scale(0.95);
                 box-shadow: 0 0 0 0 rgba(14, 122, 95, 0);
@@ -1822,31 +1835,38 @@
         }
 
         /* ---------- Speakers ---------- */
+        .keynote-grid-3,
         .keynote-grid-4 {
             display: flex !important;
             justify-content: center !important;
             flex-wrap: wrap !important;
             gap: 24px !important;
+            max-width: 1040px;
+            margin: 0 auto;
         }
 
+        .keynote-grid-3 .speaker-card,
         .keynote-grid-4 .speaker-card {
-            flex: 0 1 calc(25% - 18px) !important;
-            max-width: 285px !important;
-            min-width: 250px !important;
-            padding: 38px 22px !important;
+            flex: 0 1 calc(33.333% - 16px) !important;
+            max-width: 320px !important;
+            min-width: 260px !important;
+            padding: 38px 24px !important;
         }
 
+        .keynote-grid-3 .avatar-ring,
         .keynote-grid-4 .avatar-ring {
             width: 118px !important;
             height: 118px !important;
         }
 
+        .keynote-grid-3 .speaker-card h3,
         .keynote-grid-4 .speaker-card h3 {
             font-size: 1.25rem !important;
             margin-bottom: 6px !important;
             white-space: normal !important;
         }
 
+        .keynote-grid-3 .speaker-aff,
         .keynote-grid-4 .speaker-aff {
             font-size: 0.9rem !important;
             line-height: 1.5 !important;
@@ -1861,10 +1881,10 @@
         }
 
         .invited-grid .speaker-card {
-            flex: 0 1 340px !important;
-            width: 100% !important;
-            max-width: 360px !important;
-            padding: 38px 24px !important;
+            flex: 0 1 calc(25% - 18px) !important;
+            max-width: 285px !important;
+            min-width: 250px !important;
+            padding: 38px 22px !important;
         }
 
         .invited-grid .avatar-ring {
@@ -1875,26 +1895,43 @@
         .invited-grid .speaker-card h3 {
             font-size: 1.25rem !important;
             margin-bottom: 6px !important;
+            white-space: normal !important;
         }
 
         .invited-grid .speaker-aff {
             font-size: 0.9rem !important;
             line-height: 1.5 !important;
+            word-break: break-word !important;
         }
 
-        @media (max-width: 1150px) and (min-width: 769px) {
-            .keynote-grid-4 .speaker-card {
+        @media (max-width: 1150px) and (min-width: 901px) {
+            .invited-grid .speaker-card {
                 flex: 0 1 calc(33.333% - 16px) !important;
-                max-width: 300px !important;
+                max-width: 320px !important;
             }
         }
 
-        @media (max-width: 768px) {
-            .keynote-grid-4 {
+        @media (max-width: 900px) and (min-width: 651px) {
+
+            .keynote-grid-3 .speaker-card,
+            .keynote-grid-4 .speaker-card,
+            .invited-grid .speaker-card {
+                flex: 0 1 calc(50% - 12px) !important;
+                max-width: 320px !important;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .keynote-grid-3,
+            .keynote-grid-4,
+            .invited-grid {
                 gap: 16px !important;
             }
 
-            .keynote-grid-4 .speaker-card {
+            .keynote-grid-3 .speaker-card,
+            .keynote-grid-4 .speaker-card,
+            .invited-grid .speaker-card {
                 flex: 1 1 260px !important;
                 max-width: 360px !important;
                 padding: 30px 20px !important;
@@ -2419,6 +2456,54 @@
         .reg-window p {
             font-size: 0.84rem;
             color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-blink-reg {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 44px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #0e7a5f, #2dd4a7);
+            color: #ffffff !important;
+            animation: blink-pulse-reg 1.6s infinite ease-in-out;
+            box-shadow: 0 0 0 0 rgba(45, 212, 167, 0.75), 0 10px 24px rgba(11, 31, 58, 0.4);
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-blink-reg:hover {
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 0 26px rgba(45, 212, 167, 0.85);
+        }
+
+        @keyframes blink-pulse-reg {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(45, 212, 167, 0.75), 0 10px 24px rgba(11, 31, 58, 0.4);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 22px rgba(45, 212, 167, 0.9), 0 0 0 12px rgba(45, 212, 167, 0), 0 16px 36px rgba(14, 122, 95, 0.6);
+                filter: brightness(1.22);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .btn-blink-reg {
+                width: 100%;
+                max-width: 320px;
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
         }
 
         /* ---------- Committee ---------- */
@@ -3450,6 +3535,38 @@
             color: var(--muted);
         }
 
+        .cm-cols-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 18px;
+        }
+
+        .cm-cols-2 .cm-member strong {
+            font-size: 0.86rem;
+            line-height: 1.25;
+        }
+
+        .cm-cols-2 .cm-member span {
+            font-size: 0.74rem;
+            line-height: 1.25;
+        }
+
+        .cm-volunteers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0 18px;
+        }
+
+        .cm-volunteers-grid .cm-member strong {
+            font-size: 0.86rem;
+            line-height: 1.25;
+        }
+
+        .cm-volunteers-grid .cm-member:nth-child(3),
+        .cm-volunteers-grid .cm-member:nth-child(4) {
+            border-bottom: 0;
+        }
+
         @media (max-width: 1024px) {
             .cm-boxes {
                 grid-template-columns: repeat(2, 1fr);
@@ -3460,6 +3577,34 @@
             .cm-boxes {
                 grid-template-columns: 1fr;
                 padding: 20px 14px;
+            }
+
+            .cm-cols-2 {
+                display: block !important;
+            }
+
+            .cm-cols-2 .cm-col:first-child .cm-member:last-child {
+                border-bottom: 1px dashed var(--line);
+            }
+
+            .cm-cols-2 .cm-member strong {
+                font-size: 0.9rem;
+            }
+
+            .cm-cols-2 .cm-member span {
+                font-size: 0.78rem;
+            }
+
+            .cm-volunteers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cm-volunteers-grid .cm-member:nth-child(3) {
+                border-bottom: 1px dashed var(--line);
+            }
+
+            .cm-volunteers-grid .cm-member strong {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -3536,7 +3681,7 @@
                 <span class="hero-collab-tag">Organised by</span>
                 <span class="hero-collab-text">Centre for Research, Instrumentation &amp; Development (CRID)</span>
                 <span class="hero-collab-text">And Faculty of Science &amp; Humanities, Poornima University,
-                    Jaipur</span>
+                    Jaipur (FSH)</span>
                 <span class="hero-collab-tag">In Association With</span>
                 <span class="hero-collab-text">Centre for Development of Physics Education (CDPE), University of
                     Rajasthan, Jaipur</span>
@@ -3546,7 +3691,8 @@
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg></a>
-                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Register Now</a>
+                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-ghost">Register Now</a>
             </div>
             <div class="countdown reveal" id="countdown">
                 <div class="cd-label">Conference starts in</div>
@@ -4104,7 +4250,8 @@
                     </div>
                 </div>
 
-                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer" class="award award-reg">
+                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer"
+                    class="award award-reg">
                     <div class="award-icon-box" aria-hidden="true">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -4116,7 +4263,13 @@
                     <div class="award-content">
                         <div class="award-header">
                             <span class="award-badge green">Register Now</span>
-                            <h4>Fill the Registration Form <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="vertical-align:-1px;display:inline-block;margin-left:3px;" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg></h4>
+                            <h4>Fill the Registration Form <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.4"
+                                    style="vertical-align:-1px;display:inline-block;margin-left:3px;"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                                </svg></h4>
                         </div>
                     </div>
                 </a>
@@ -4127,12 +4280,24 @@
     <!-- ============ SPEAKERS ============ -->
     <section class="section section-alt" id="speakers">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal" style="margin-bottom: 24px;">
                 <h2>Distinguished <span class="grad-text">Voices</span></h2>
-                <h2 class="sub-heading" style="font-size: clamp(1.15rem, 2.4vw, 1.35rem); font-weight: 700; color: var(--navy); margin-top: -6px; margin-bottom: 12px; letter-spacing: -0.01em;">Keynote Speaker</h2>
-                <p>Learn from leaders in academia, research and industry.</p>
+                <p style="margin-bottom: 14px;">Learn from leaders in academia, research and industry.</p>
+                <div>
+                    <span class="eyebrow" style="margin-bottom: 0;">Keynote Speaker</span>
+                </div>
             </div>
-            <div class="speaker-grid keynote-grid-4">
+            <div class="speaker-grid keynote-grid-3">
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4nIBnI9mjtHx0DUK1In9_ryMMYoATqAGW-RWDhtvhnpNxfWzS-bZFPP2N&s=10"
+                                alt="Dr. Nitendra Singh" />
+                        </div>
+                    </div>
+                    <h3>Dr. Nitendra Singh</h3>
+                    <p class="speaker-aff">Nuclear Engineer<br>ITER Organization, France</p>
+                </div>
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
@@ -4147,6 +4312,37 @@
                 <div class="speaker-card reveal">
                     <div class="speaker-avatar">
                         <div class="avatar-ring">
+                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
+                                alt="Dr. Sunil Kumar" />
+                        </div>
+                    </div>
+                    <h3>Dr. Sunil Kumar</h3>
+                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTnA0clqUHMLVN0mqOWohaaE5WpyUOcIekSxyoRkTQeQ&s=10"
+                                alt="Prof. Shivraj Bhardwaj" />
+                        </div>
+                    </div>
+                    <h3>Prof. Shivraj Bhardwaj</h3>
+                    <p class="speaker-aff">Professor, Department of Physics<br>B. S. A. College (Dr. Bhimrao Ambedkar
+                        University, Agra), Mathura, India</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQHs0OsB0l7zPQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726759489132?e=2147483647&v=beta&t=hN78UK5raMpRg8IB4NmxHF-Epnf_MzvxqE4hvXeuq2g"
+                                alt="Dr. Manoj Kumar Sharma" />
+                        </div>
+                    </div>
+                    <h3>Dr. Manoj Kumar Sharma</h3>
+                    <p class="speaker-aff">Professor, Department of Physics<br>University of Lucknow, Lucknow</p>
+                </div>
+                <div class="speaker-card reveal">
+                    <div class="speaker-avatar">
+                        <div class="avatar-ring">
                             <img src="https://dl.dropboxusercontent.com/scl/fi/qyyhr4w1garl00kqv44p2/citations.jpeg?rlkey=67p7wi96t20c56r1128gvamq4&st"
                                 alt="Dr. Nazrul Hsan" />
                         </div>
@@ -4155,38 +4351,6 @@
                     <p class="speaker-aff">Postdoctoral Fellow, Department of Materials Science and
                         Engineering<br>Konkuk University, Seoul,
                         Republic of Korea</p>
-                </div>
-                <div class="speaker-card reveal">
-                    <div class="speaker-avatar">
-                        <div class="avatar-ring">
-                            <img src="https://dl.dropboxusercontent.com/scl/fi/abtp37ur5ynmiyd7kq1t6/Passport-Amol-Pawar.jpg?rlkey=zrm7os9inxkzk2le6114b6uyn"
-                                alt="Dr. Amol D Pawar" />
-                        </div>
-                    </div>
-                    <h3>Dr. Amol D Pawar</h3>
-                    <p class="speaker-aff">Associate Professor, Department of School of Construction<br>NICMAR
-                        University, India</p>
-                </div>
-                <div class="speaker-card reveal">
-                    <div class="speaker-avatar">
-                        <div class="avatar-ring">
-                            <img src="https://dl.dropboxusercontent.com/scl/fi/cptho843ei40lw3czzemn/Passport_NEW-Dr.-Ashootosh-Mandpe.jpeg?rlkey=wu73qgbugeym1001wgvyznwvd"
-                                alt="Dr. Ashootosh Mandpe" />
-                        </div>
-                    </div>
-                    <h3>Dr. Ashootosh Mandpe</h3>
-                    <p class="speaker-aff">Assistant Professor, Department of Civil Engineering<br>Indian Institute
-                        of Technology Indore, India</p>
-                </div>
-                <div class="speaker-card reveal">
-                    <div class="speaker-avatar">
-                        <div class="avatar-ring">
-                            <img src="https://dl.dropboxusercontent.com/scl/fi/lc7e4q3qe4juu4maer25g/SK-IIP.png?rlkey=kj29vtymbm2cx11ufqkc7068n"
-                                alt="Dr. Sunil Kumar" />
-                        </div>
-                    </div>
-                    <h3>Dr. Sunil Kumar</h3>
-                    <p class="speaker-aff">Scientist G (Chief Scientist)<br>CSIR-IIP, Dehradun, India</p>
                 </div>
             </div>
 
@@ -4198,6 +4362,28 @@
                 <div class="speaker-grid invited-grid">
                     <div class="speaker-card reveal">
                         <div class="speaker-avatar">
+                            <div class="avatar-ring" style="background-color: #7c6a58;">
+                                <img src="https://smlmnit.com/wp-content/uploads/2022/09/KA.jpg"
+                                    alt="Dr. Kamlendra Awasthi"
+                                    style="object-position: center top; transform: scale(0.9) translateY(8px);" />
+                            </div>
+                        </div>
+                        <h3>Dr. Kamlendra Awasthi</h3>
+                        <p class="speaker-aff">Associate Professor<br>Dept. of Physics, MNIT, Jaipur, India</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://scholarlypublication.com/wp-content/uploads/2024/09/Dr.-Ajay-Singh-Verma-300x300.png"
+                                    alt="Prof. (Dr.) Ajay Singh Verma" />
+                            </div>
+                        </div>
+                        <h3>Prof. (Dr.) Ajay Singh Verma</h3>
+                        <p class="speaker-aff">Professor, Department of Allied Science<br>Graphic Era University,
+                            Dehradun, India</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
                             <div class="avatar-ring">
                                 <img src="https://dl.dropboxusercontent.com/scl/fi/9cy1fcjt443homcrsf1n5/Passport-Size-Photo-Subhash-Thota.jpg.jpeg?rlkey=5rz560inrka0jsqv1ytkt9zjf"
                                     alt="Dr. Subhash Thota" />
@@ -4206,6 +4392,50 @@
                         <h3>Dr. Subhash Thota</h3>
                         <p class="speaker-aff">Professor,
                             Department of Physics,<br>IIT Guwahati, INDIA</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://www.nitrkl.ac.in/docs/Faculty/Photo/1201355.jpg"
+                                    alt="Dr. Arjun Singh Yadav" />
+                            </div>
+                        </div>
+                        <h3>Dr. Arjun Singh Yadav</h3>
+                        <p class="speaker-aff">Department of Electronics and Communication Engineering<br>National
+                            Institute of Technology, Rourkela, India</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://pec.ac.in/sites/default/files/faculty_profile/images/sanjeev_0.jpg"
+                                    alt="Dr. Sanjeev Kumar" />
+                            </div>
+                        </div>
+                        <h3>Dr. Sanjeev Kumar</h3>
+                        <p class="speaker-aff">Professor, Department of Physics,<br>Punjab Engineering College (Deemed
+                            to be University), Chandigarh, India</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://dl.dropboxusercontent.com/scl/fi/abtp37ur5ynmiyd7kq1t6/Passport-Amol-Pawar.jpg?rlkey=zrm7os9inxkzk2le6114b6uyn"
+                                    alt="Dr. Amol D Pawar" />
+                            </div>
+                        </div>
+                        <h3>Dr. Amol D Pawar</h3>
+                        <p class="speaker-aff">Associate Professor, Department of School of Construction<br>NICMAR
+                            University, India</p>
+                    </div>
+                    <div class="speaker-card reveal">
+                        <div class="speaker-avatar">
+                            <div class="avatar-ring">
+                                <img src="https://dl.dropboxusercontent.com/scl/fi/cptho843ei40lw3czzemn/Passport_NEW-Dr.-Ashootosh-Mandpe.jpeg?rlkey=wu73qgbugeym1001wgvyznwvd"
+                                    alt="Dr. Ashootosh Mandpe" />
+                            </div>
+                        </div>
+                        <h3>Dr. Ashootosh Mandpe</h3>
+                        <p class="speaker-aff">Assistant Professor, Department of Civil Engineering<br>Indian Institute
+                            of Technology Indore, India</p>
                     </div>
                     <div class="speaker-card reveal">
                         <div class="speaker-avatar">
@@ -4440,16 +4670,17 @@
                         <h5>Late Registration</h5>
                         <p>Higher late fees apply — avoid delays.</p>
                     </div>
-                    <div style="margin-top: 22px;">
-                        <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">
-                            Register Now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" style="margin-left: 6px;">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
+            </div>
+
+            <div class="reg-cta-center reveal" style="text-align: center; margin-top: 38px;">
+                <a href="https://forms.gle/wQqRCMswaapSR4Ma6" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary btn-blink-reg">
+                    Register Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.2" style="margin-left: 8px;" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -4615,27 +4846,32 @@
                         </div>
                         <div class="cm-box">
                             <h4>Organising Committee</h4>
-                            <div class="cm-member"><strong>Dr. Sunil Gupta</strong><span>Dean (R&amp;D) · Poornima
-                                    University</span></div>
-                            <div class="cm-member"><strong>Dr. Divya Prakash</strong><span>Professor · Poornima College
-                                    of
-                                    Engineering</span></div>
-                            <div class="cm-member"><strong>Dr. Sangita Gupta</strong><span>Professor (FSH) · Poornima
-                                    University</span></div>
-                            <div class="cm-member"><strong>Dr. Sunita Kumari</strong><span>Associate Professor (FSH) ·
-                                    Poornima University</span></div>
-                            <div class="cm-member"><strong>Dr. Shiva Soni</strong><span>Associate Professor (FSH) ·
-                                    Poornima
-                                    University</span></div>
-                            <div class="cm-member"><strong>Dr. Sonal Jain</strong><span>Associate Professor (FSH) ·
-                                    Poornima
-                                    University</span></div>
-                            <div class="cm-member"><strong>Dr. Poonam Sain</strong><span>Assistant Librarian ·
-                                    University
-                                    Maharani
-                                    College</span></div>
-                            <div class="cm-member"><strong>Dr. Vijay Dangi</strong><span>Assistant Professor (FSH) ·
-                                    Poornima University</span></div>
+                            <div class="cm-cols-2">
+                                <div class="cm-col">
+                                    <div class="cm-member"><strong>Dr. Sunil Gupta</strong><span>Dean (R&amp;D) ·
+                                            Poornima University</span></div>
+                                    <div class="cm-member"><strong>Dr. Divya Prakash</strong><span>Professor · Poornima
+                                            College of Engineering</span></div>
+                                    <div class="cm-member"><strong>Dr. Sangita Gupta</strong><span>Professor (FSH) ·
+                                            Poornima University</span></div>
+                                    <div class="cm-member"><strong>Dr. Sunita Kumari</strong><span>Associate Professor
+                                            (FSH) · Poornima University</span></div>
+                                    <div class="cm-member"><strong>Dr. Shiva Soni</strong><span>Associate Professor
+                                            (FSH) · Poornima University</span></div>
+                                </div>
+                                <div class="cm-col">
+                                    <div class="cm-member"><strong>Dr. Sonal Jain</strong><span>Associate Professor
+                                            (FSH) · Poornima University</span></div>
+                                    <div class="cm-member"><strong>Dr. Poonam Sain</strong><span>Assistant Librarian ·
+                                            University Maharani College</span></div>
+                                    <div class="cm-member"><strong>Dr. Vijay Dangi</strong><span>Assistant Professor
+                                            (FSH) · Poornima University</span></div>
+                                    <div class="cm-member"><strong>Dr. Amanpal Singh Clair</strong><span>Assistant
+                                            Professor Department of Physics University of Rajasthan</span></div>
+                                    <div class="cm-member"><strong>Mr. Sanjeev Kumar</strong><span>Assistant Professor
+                                            Department of Physics University of Rajasthan</span></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="cm-box">
                             <h4>Review Committee</h4>
@@ -4738,8 +4974,18 @@
                         </div>
                         <div class="cm-box">
                             <h4>Technical Network Administrator</h4>
-                            <div class="cm-member"><strong>Mr. Praful Kumar Dubey</strong><span>Network Administrator ·
+                            <div class="cm-member"><strong>Mr. Shivraj Singh Rajawat</strong><span>Network Administrator
+                                    ·
                                     Poornima University</span></div>
+                        </div>
+                        <div class="cm-box">
+                            <h4>Volunteers</h4>
+                            <div class="cm-volunteers-grid">
+                                <div class="cm-member"><strong>Ms. Shivani Deshwal</strong></div>
+                                <div class="cm-member"><strong>Ms. Nidhi Yadav</strong></div>
+                                <div class="cm-member"><strong>Ms. Komal Sharma</strong></div>
+                                <div class="cm-member"><strong>Mr. Sanjeev Agrawal</strong></div>
+                            </div>
                         </div>
                     </div>
                 </div>
